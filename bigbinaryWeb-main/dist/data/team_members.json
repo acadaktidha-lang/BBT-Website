@@ -4,7 +4,7 @@
     "name": "Abdur Rahman",
     "position": "CEO",
     "bio": "Experienced leader",
-    "image_url": "/assets/.jpg",
+    "image_url": "/assets/profileCeo.jpg",
     "category": "leadership",
     "is_active": true,
     "sort_order": 1
