@@ -1,10 +1,10 @@
 [
   {
     "id": "1",
-    "name": "John Doe",
+    "name": "Abdur Rahman",
     "position": "CEO",
     "bio": "Experienced leader",
-    "image_url": "/assets/partnerships.jpg",
+    "image_url": "/assets/.jpg",
     "category": "leadership",
     "is_active": true,
     "sort_order": 1
