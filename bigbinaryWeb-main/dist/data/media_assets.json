@@ -1,0 +1,17 @@
+[
+  {
+    "asset_key": "navbar_logo",
+    "asset_url": "/assets/partnerships.jpg",
+    "is_active": true
+  },
+  {
+    "asset_key": "footer_logo",
+    "asset_url": "/assets/partnerships.jpg",
+    "is_active": true
+  },
+  {
+    "asset_key": "favicon",
+    "asset_url": "/assets/partnerships.jpg",
+    "is_active": true
+  }
+]
