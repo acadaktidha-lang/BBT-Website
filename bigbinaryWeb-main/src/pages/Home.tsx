@@ -501,7 +501,7 @@ export default function Home() {
               <div className="card-modern group overflow-hidden h-full">
                 <div className="relative h-96 md:h-[500px] overflow-hidden">
                   <img 
-                    src="/assets/classroom.jpg" 
+                    src="/assets/calssroom.png.jpeg" 
                     alt="Modern Computer Lab with Windows PCs"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -521,7 +521,7 @@ export default function Home() {
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src="/assets/classroom.jpg" 
+                      src="/assets/calssroom.png.jpeg" 
                       alt="Apple iMac Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -539,7 +539,7 @@ export default function Home() {
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src="/assets/classroom.jpg" 
+                      src="/assets/calssroom.png.jpeg" 
                       alt="Mixed Technology Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />

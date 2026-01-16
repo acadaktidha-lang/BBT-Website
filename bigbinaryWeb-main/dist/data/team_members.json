@@ -1,16 +1,26 @@
 [
   {
     "id": "1",
-    "name": "John Doe",
+    "name": "Abdur Rehman",
     "position": "CEO",
-    "bio": "Experienced leader",
-    "image_url": "/assets/partnerships.jpg",
+    "bio": "Project Manager | Education Technologist | Author | Building Sustainable Businesses & Empowering Entrepreneurs | Data and Digital Transformation Leader |",
+    "image_url": "/assets/",
     "category": "leadership",
     "is_active": true,
     "sort_order": 1
   },
   {
     "id": "2",
+    "name": "Jane Smith",
+    "position": "Instructor",
+    "bio": "Expert teacher",
+    "image_url": "/assets/partnerships.jpg",
+    "category": "team",
+    "is_active": true,
+    "sort_order": 1
+  }
+   {
+    "id": "3",
     "name": "Jane Smith",
     "position": "Instructor",
     "bio": "Expert teacher",

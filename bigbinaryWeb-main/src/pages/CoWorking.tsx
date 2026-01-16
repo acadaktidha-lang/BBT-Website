@@ -18,8 +18,8 @@ import {
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 // Classroom images from storage
-const classroomImage1 = '/assets/classroom.jpg';
-const classroomImage2 = '/assets/classroom.jpg';
+const classroomImage1 = '/assets/calssroom.png.jpeg';
+const classroomImage2 = '/assets/calssroom.png.jpeg';
 
 export default function CoWorking() {
   useSEO({
