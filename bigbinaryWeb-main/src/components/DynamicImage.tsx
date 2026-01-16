@@ -42,6 +42,8 @@ export default function DynamicImage({
       alt={alt || altText || assetKey}
       className={className}
       style={style}
+      loading="lazy"
+      decoding="async"
       onError={(e) => {
         if (fallbackUrl && url !== fallbackUrl) {
           const target = e.target as HTMLImageElement;
