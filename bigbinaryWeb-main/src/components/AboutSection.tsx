@@ -2,10 +2,10 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Briefcase, Users, Award, Globe, Zap } from 'lucide-react';
-import digitalLiteracyImg from '@/assets/digital-literacy.jpg';
-import marketReadyImg from '@/assets/market-ready.jpg';
-import internshipImg from '@/assets/internship.jpg';
-import partnershipsImg from '@/assets/partnerships.jpg';
+import digitalLiteracyImg from '/assets/digital-literacy.jpg';
+import marketReadyImg from '/assets/market-ready.jpg';
+import internshipImg from '/assets/internship.jpg';
+import partnershipsImg from '/assets/partnerships.jpg';
 import globalStandardsImg from '@/assets/global-standards.jpg';
 import innovationImg from '@/assets/innovation.jpg';
 

@@ -19,7 +19,7 @@ import { useSEO } from '@/hooks/useSEO';
 
 // Images come from backend/media assets
 import { useMediaAssets } from '@/hooks/useMediaAsset';
-import defaultCourseBg from '@/assets/default-course-bg.jpg';
+import defaultCourseBg from '/assets/default-course-bg.jpg';
 
 interface Course {
   id: string;

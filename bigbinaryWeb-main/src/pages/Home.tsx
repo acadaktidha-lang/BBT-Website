@@ -36,12 +36,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useMediaAssets } from '@/hooks/useMediaAsset';
 
 // Local images for highlight cards; hero uses remote URL
-import globalStandardsImage from '@/assets/global-standards.jpg';
-import marketReadyImage from '@/assets/market-ready.jpg';
-import innovationImage from '@/assets/innovation.jpg';
-import internshipImage from '@/assets/internship.jpg';
-import partnershipsImage from '@/assets/partnerships.jpg';
-import digitalLiteracyImage from '@/assets/digital-literacy.jpg';
+import globalStandardsImage from '/assets/global-standards.jpg';
+import marketReadyImage from '/assets/market-ready.jpg';
+import innovationImage from '/assets/innovation.jpg';
+import internshipImage from '/assets/internship.jpg';
+import partnershipsImage from '/assets/partnerships.jpg';
+import digitalLiteracyImage from '/assets/digital-literacy.jpg';
 
 interface Course {
   id: string;

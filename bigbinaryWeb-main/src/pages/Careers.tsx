@@ -5,10 +5,10 @@ import { Users, Globe, Lightbulb, TrendingUp, Send } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 // Import images for career benefits
-import innovationImage from '@/assets/innovation.jpg';
-import globalStandardsImage from '@/assets/global-standards.jpg';
-import marketReadyImage from '@/assets/market-ready.jpg';
-import partnershipsImage from '@/assets/partnerships.jpg';
+import innovationImage from '/assets/innovation.jpg';
+import globalStandardsImage from '/assets/global-standards.jpg';
+import marketReadyImage from '/assets/market-ready.jpg';
+import partnershipsImage from '/assets/partnerships.jpg';
 
 // Job positions removed per request; accepting open applications only
 

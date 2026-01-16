@@ -7,3 +7,6 @@ logs
 .idea
 .DS_Store
 *.suo
+
+.vercel
+.env*.local

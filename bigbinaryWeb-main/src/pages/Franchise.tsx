@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Download, Phone, Mail, MapPin, Globe } from "lucide-react";
-import businessSupportImg from "@/assets/business-support.jpg";
-import financialModelImg from "@/assets/financial-model.jpg";
-import businessBoostImg from "@/assets/business-boost.jpg";
-import comprehensiveTrainingImg from "@/assets/comprehensive-training.jpg";
-import provenModelImg from "@/assets/proven-model.jpg";
+import businessSupportImg from "/assets/business-support.jpg";
+import financialModelImg from "/assets/financial-model.jpg";
+import businessBoostImg from "/assets/business-boost.jpg";
+import comprehensiveTrainingImg from "/assets/comprehensive-training.jpg";
+import provenModelImg from "/assets/proven-model.jpg";
 import { useSEO } from '@/hooks/useSEO';
 
 const Franchise = () => {
