@@ -15,8 +15,8 @@ const Franchise = () => {
     keywords: 'Big Binary franchise, Big Binary Tech franchise opportunity, education franchise, technology training franchise, Big Binary partnership',
     canonical: 'https://bigbinarytech.com/franchise',
   });
-  const BROCHURE_URL = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/Become%20a%20Big%20Binary%20Tech%20International%20Institute%20Franchise%20Partner.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL0JlY29tZSBhIEJpZyBCaW5hcnkgVGVjaCBJbnRlcm5hdGlvbmFsIEluc3RpdHV0ZSBGcmFuY2hpc2UgUGFydG5lci5wZGYiLCJpYXQiOjE3NTYxMjkzOTUsImV4cCI6MTc4NzY2NTM5NX0.lM5PYvNwZMjD9jTYLX7v_ByMHVfmFIh3hUJtW6fWI-k';
-  const HERO_BG_URL = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/About%20Backgroun.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL0Fib3V0IEJhY2tncm91bi5qcGciLCJpYXQiOjE3NTYxMjk5NzYsImV4cCI6MTc4NzY2NTk3Nn0.LP8iE9VSsD4kuDctnrln74TzUR24U8J_8vwXDfN6_gY';
+  const BROCHURE_URL = '/assets/sample-brochure.pdf';
+  const HERO_BG_URL = '/assets/default-course-bg.jpg';
   const handleDownloadBrochure = () => {
     // Create a link element
     const link = document.createElement('a');

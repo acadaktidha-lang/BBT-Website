@@ -36,11 +36,11 @@ function LayoutContent() {
   const { url: faviconUrl } = useMediaAsset('favicon');
 
   // Explicit override for navbar logo (signed URL)
-  const NAVBAR_LOGO_OVERRIDE = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/without%20stroke.svg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL3dpdGhvdXQgc3Ryb2tlLnN2ZyIsImlhdCI6MTc1NjEyNjk2MywiZXhwIjoxNzg3NjYyOTYzfQ.-qel8HsTQq0QOOuwjBtDTfV-DyxnSHQBU0EMvdDs_Js';
+  const NAVBAR_LOGO_OVERRIDE = '/assets/partnerships.jpg';
   const resolvedNavbarLogo = NAVBAR_LOGO_OVERRIDE || navbarLogoUrl;
 
   // Explicit override for footer logo (signed URL)
-  const FOOTER_LOGO_OVERRIDE = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/stroke%20logo.svg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL3N0cm9rZSBsb2dvLnN2ZyIsImlhdCI6MTc1NjEyNzAwOSwiZXhwIjoxNzg3NjYzMDA5fQ.NruotvFdRA9PGZBnDWH10OGK3HCl0wy4lMcdb6CqJjs';
+  const FOOTER_LOGO_OVERRIDE = '/assets/partnerships.jpg';
   const resolvedFooterLogo = FOOTER_LOGO_OVERRIDE || footerLogoUrl;
 
   useEffect(() => {

@@ -68,26 +68,19 @@ export default function SpecializationDetail() {
       setLoading(true);
       
       // Fetch specialization
-      const { data: specData } = await supabase
-        .from('specializations')
-        .select('*')
-        .eq('slug', slug)
-        .eq('is_active', true)
-        .single();
+      const specResponse = await fetch('/data/specializations.json');
+      if (specResponse.ok) {
+        const specsData = await specResponse.json();
+        const specData = specsData.find((s: any) => s.slug === slug);
+        if (specData) {
+          setSpecialization(specData);
 
-      if (specData) {
-        setSpecialization(specData);
-
-        // Fetch courses for this specialization
-        const { data: coursesData } = await supabase
-          .from('courses')
-          .select('*')
-          .eq('specialization_id', specData.id)
-          .eq('is_active', true)
-          .order('sort_order');
-
-        if (coursesData) {
-          setCourses(coursesData);
+          // Fetch courses for this specialization (mock all courses)
+          const coursesResponse = await fetch('/data/courses.json');
+          if (coursesResponse.ok) {
+            const coursesData = await coursesResponse.json();
+            setCourses(coursesData);
+          }
         }
       }
     } catch (error) {
