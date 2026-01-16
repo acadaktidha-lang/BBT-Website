@@ -22,14 +22,12 @@ export default function LeadershipSection() {
 
   const fetchLeadership = async () => {
     try {
-      const { data } = await supabase
-        .from('team_members')
-        .select('*')
-        .eq('is_active', true)
-        .eq('category', 'leadership')
-        .order('sort_order', { ascending: true });
-      
-      setLeadership(data || []);
+      const response = await fetch('/data/team_members.json');
+      if (response.ok) {
+        const data = await response.json();
+        const leadershipData = data.filter((member: any) => member.category === 'leadership' && member.is_active);
+        setLeadership(leadershipData);
+      }
     } catch (error) {
       console.error('Error fetching leadership:', error);
     } finally {

@@ -22,14 +22,12 @@ export default function TeamSection() {
 
   const fetchTeamMembers = async () => {
     try {
-      const { data } = await supabase
-        .from('team_members')
-        .select('*')
-        .eq('is_active', true)
-        .eq('category', 'team')
-        .order('sort_order', { ascending: true });
-      
-      setTeamMembers(data || []);
+      const response = await fetch('/data/team_members.json');
+      if (response.ok) {
+        const data = await response.json();
+        const teamData = data.filter((member: any) => member.category === 'team' && member.is_active);
+        setTeamMembers(teamData);
+      }
     } catch (error) {
       console.error('Error fetching team members:', error);
     } finally {

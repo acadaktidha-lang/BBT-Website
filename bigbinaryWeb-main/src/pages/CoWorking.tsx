@@ -18,8 +18,8 @@ import {
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 // Classroom images from storage
-const classroomImage1 = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/classroom.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL2NsYXNzcm9vbS5qcGciLCJpYXQiOjE3NTYxNDAyOTQsImV4cCI6MTc4NzY3NjI5NH0.zDgA1093SoeSqmLbAbBh4kE2T7TqO21CBrPXa9Y1E6c';
-const classroomImage2 = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/classroom.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL2NsYXNzcm9vbS5qcGciLCJpYXQiOjE3NTYxNDAzNjYsImV4cCI6MTc4NzY3NjM2Nn0.30m7x-1mW4rVhVTn8Yef-rC2vo1yVqpGLQvnIzH0yCM';
+const classroomImage1 = '/assets/classroom.jpg';
+const classroomImage2 = '/assets/classroom.jpg';
 
 export default function CoWorking() {
   useSEO({

@@ -107,7 +107,7 @@ export default function Home() {
   const { openEnrollmentSidebar } = useEnrollment();
   const { assets: specAssets } = useMediaAssets('specializations');
   const { assets: courseAssets } = useMediaAssets('courses');
-  const HERO_BG_URL = 'https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/About%20Backgroun.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL0Fib3V0IEJhY2tncm91bi5qcGciLCJpYXQiOjE3NTYxMjk5NzYsImV4cCI6MTc4NzY2NTk3Nn0.LP8iE9VSsD4kuDctnrln74TzUR24U8J_8vwXDfN6_gY';
+  const HERO_BG_URL = '/assets/default-course-bg.jpg';
 
   useEffect(() => {
     fetchData();
@@ -501,7 +501,7 @@ export default function Home() {
               <div className="card-modern group overflow-hidden h-full">
                 <div className="relative h-96 md:h-[500px] overflow-hidden">
                   <img 
-                    src="https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/classroom.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL2NsYXNzcm9vbS5qcGciLCJpYXQiOjE3NTYxNDAyOTQsImV4cCI6MTc4NzY3NjI5NH0.zDgA1093SoeSqmLbAbBh4kE2T7TqO21CBrPXa9Y1E6c" 
+                    src="/assets/classroom.jpg" 
                     alt="Modern Computer Lab with Windows PCs"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -521,7 +521,7 @@ export default function Home() {
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src="https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/classroom.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL2NsYXNzcm9vbS5qcGciLCJpYXQiOjE3NTYxNDAzNjYsImV4cCI6MTc4NzY3NjM2Nn0.30m7x-1mW4rVhVTn8Yef-rC2vo1yVqpGLQvnIzH0yCM" 
+                      src="/assets/classroom.jpg" 
                       alt="Apple iMac Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -539,7 +539,7 @@ export default function Home() {
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src="https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/classroom.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL2NsYXNzcm9vbS5qcGciLCJpYXQiOjE3NTYxNDAyOTQsImV4cCI6MTc4NzY3NjI5NH0.zDgA1093SoeSqmLbAbBh4kE2T7TqO21CBrPXa9Y1E6c" 
+                      src="/assets/classroom.jpg" 
                       alt="Mixed Technology Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />

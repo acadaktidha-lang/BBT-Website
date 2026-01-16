@@ -30,7 +30,7 @@ export default function About() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://clucdoviijndyduaufbp.supabase.co/storage/v1/object/sign/bbti/About%20Backgroun.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mN2JhYmU5ZS0wMDIwLTQ5YmItYjg2MC01MTUwOGI4MDNlZTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJiYnRpL0Fib3V0IEJhY2tncm91bi5qcGciLCJpYXQiOjE3NTYxMjk5NzYsImV4cCI6MTc4NzY2NTk3Nn0.LP8iE9VSsD4kuDctnrln74TzUR24U8J_8vwXDfN6_gY')`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('/assets/default-course-bg.jpg')`
           }}
         />
         
