@@ -135,48 +135,30 @@ export default function Home() {
       setLoading(true);
       
       // Fetch specializations
-      const { data: specData } = await supabase
-        .from('specializations')
-        .select('*')
-        .eq('is_active', true)
-        .order('sort_order');
-
-      if (specData) {
+      const specResponse = await fetch('/data/specializations.json');
+      if (specResponse.ok) {
+        const specData = await specResponse.json();
         setSpecializations(specData);
       }
 
       // Fetch all courses
-      const { data: coursesData } = await supabase
-        .from('courses')
-        .select('*')
-        .eq('is_active', true)
-        .order('sort_order');
-
-      if (coursesData) {
+      const coursesResponse = await fetch('/data/courses.json');
+      if (coursesResponse.ok) {
+        const coursesData = await coursesResponse.json();
         setCourses(coursesData);
       }
 
       // Fetch website content
-      const { data: contentData } = await supabase
-        .from('website_content')
-        .select('*');
-
-      if (contentData) {
-        const contentMap: any = {};
-        contentData.forEach(item => {
-          contentMap[item.section] = item.content;
-        });
-        setContent(contentMap as WebsiteContent);
+      const contentResponse = await fetch('/data/website_content.json');
+      if (contentResponse.ok) {
+        const contentData = await contentResponse.json();
+        setContent(contentData as WebsiteContent);
       }
 
       // Fetch FAQs
-      const { data: faqData } = await supabase
-        .from('faqs')
-        .select('question, answer')
-        .eq('is_active', true)
-        .order('sort_order');
-
-      if (faqData) {
+      const faqResponse = await fetch('/data/faqs.json');
+      if (faqResponse.ok) {
+        const faqData = await faqResponse.json();
         const modesFaq: FAQ = {
           question: 'What are the modes of classes?',
           answer:

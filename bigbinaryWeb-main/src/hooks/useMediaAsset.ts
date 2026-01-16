@@ -26,16 +26,12 @@ export const useMediaAsset = (assetKey: string, fallbackUrl?: string) => {
         setLoading(true);
         setError(null);
 
-        const { data, error } = await supabase
-          .from('media_assets')
-          .select('*')
-          .eq('asset_key', assetKey)
-          .eq('is_active', true)
-          .maybeSingle();
+        const response = await fetch('/data/media_assets.json');
+        if (!response.ok) throw new Error('Failed to fetch media assets');
+        const data = await response.json();
+        const asset = data.find((item: any) => item.asset_key === assetKey && item.is_active);
 
-        if (error) throw error;
-
-        setAsset(data);
+        setAsset(asset || null);
       } catch (err) {
         console.error('Error fetching media asset:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch asset');
@@ -68,19 +64,14 @@ export const useMediaAssets = (section?: string) => {
         setLoading(true);
         setError(null);
 
-        let query = supabase
-          .from('media_assets')
-          .select('*')
-          .eq('is_active', true)
-          .order('sort_order', { ascending: true });
+        const response = await fetch('/data/media_assets.json');
+        if (!response.ok) throw new Error('Failed to fetch media assets');
+        let data = await response.json();
 
         if (section) {
-          query = query.eq('section', section);
+          // Mock filter by section, since JSON doesn't have section, return all for now
+          data = data;
         }
-
-        const { data, error } = await query;
-
-        if (error) throw error;
 
         setAssets(data || []);
       } catch (err) {

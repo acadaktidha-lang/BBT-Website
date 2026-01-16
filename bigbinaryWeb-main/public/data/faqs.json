@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is BigBinary Academy?",
+    "answer": "A platform for learning modern technologies.",
+    "is_active": true,
+    "sort_order": 1
+  },
+  {
+    "question": "How to enroll?",
+    "answer": "Contact us for enrollment details.",
+    "is_active": true,
+    "sort_order": 2
+  }
+]
