@@ -10,3 +10,6 @@ logs
 
 .vercel
 .env*.local
+
+# Build output
+dist/
