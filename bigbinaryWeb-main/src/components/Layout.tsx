@@ -36,11 +36,11 @@ function LayoutContent() {
   const { url: faviconUrl } = useMediaAsset('favicon');
 
   // Explicit override for navbar logo (signed URL)
-  const NAVBAR_LOGO_OVERRIDE = '/assets/partnerships.jpg';
+  const NAVBAR_LOGO_OVERRIDE = '/fav.png';
   const resolvedNavbarLogo = NAVBAR_LOGO_OVERRIDE || navbarLogoUrl;
 
   // Explicit override for footer logo (signed URL)
-  const FOOTER_LOGO_OVERRIDE = '/assets/partnerships.jpg';
+  const FOOTER_LOGO_OVERRIDE = '/fav.png';
   const resolvedFooterLogo = FOOTER_LOGO_OVERRIDE || footerLogoUrl;
 
   useEffect(() => {
