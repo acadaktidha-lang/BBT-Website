@@ -85,7 +85,7 @@ export default function Careers() {
           <div className="text-center mb-16">
             <div className="slide-up">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-primary">
-                Why Choose BBTI as Your Career Destination?
+                Why Choose BBTI as Your Career?
               </h2>
               <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
