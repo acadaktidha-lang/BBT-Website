@@ -45,11 +45,11 @@ function LayoutContent() {
   const { url: faviconUrl } = useMediaAsset('favicon');
 
   // Explicit override for navbar logo (signed URL)
-  const NAVBAR_LOGO_OVERRIDE = '/public/assets/fav.png';
+    const NAVBAR_LOGO_OVERRIDE = '/assets/fav1.png';
   const resolvedNavbarLogo = NAVBAR_LOGO_OVERRIDE || navbarLogoUrl;
 
   // Explicit override for footer logo (signed URL)
-  const FOOTER_LOGO_OVERRIDE = '/public/assets/fav.png';
+    const FOOTER_LOGO_OVERRIDE = '/assets/fav1.png';
   const resolvedFooterLogo = FOOTER_LOGO_OVERRIDE || footerLogoUrl;
 
   useEffect(() => {

@@ -1,17 +1,17 @@
 [
   {
     "asset_key": "navbar_logo",
-    "asset_url": "/assets/fav.png",
+    "asset_url": "/assets/fav1.png",
     "is_active": true
   },
   {
     "asset_key": "footer_logo",
-    "asset_url": "/assets/fav.png",
+    "asset_url": "/assets/fav1.png",
     "is_active": true
   },
   {
     "asset_key": "favicon",
-    "asset_url": "/assets/fav.png",
+    "asset_url": "/assets/fav1.png",
     "is_active": true
   }
 ]
