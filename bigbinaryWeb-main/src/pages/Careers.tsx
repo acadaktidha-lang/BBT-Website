@@ -42,7 +42,7 @@ const careerBenefits = [
 export default function Careers() {
   useSEO({
     title: 'Careers',
-    description: 'Join Big Binary Tech International Institute team. Explore career opportunities in technology education, teaching, and administration. Make a global impact with Big Binary.',
+    description: 'Join Big Binary Tech team. Explore career opportunities in technology education, teaching, and administration. Make a global impact with Big Binary.',
     keywords: 'Big Binary careers, Big Binary Tech jobs, education careers, teaching jobs, Big Binary employment, technology education jobs',
     canonical: 'https://bigbinarytech.com/careers',
   });
@@ -85,7 +85,7 @@ export default function Careers() {
           <div className="text-center mb-16">
             <div className="slide-up">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-primary">
-                Why Choose BBTI as Your Career?
+                Why Choose Big Binary Tech as Your Career?
               </h2>
               <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
@@ -94,11 +94,11 @@ export default function Careers() {
             </div>
           </div>
 
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-             {careerBenefits.map((benefit, index) => (
-               <div key={index} className="fade-in-scale" style={{animationDelay: `${index * 0.1}s`}}>
-                 <Card className="card-modern group h-full overflow-hidden">
-                   <div className="relative h-64 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {careerBenefits.map((benefit, index) => (
+              <div key={index} className="fade-in-scale" style={{animationDelay: `${index * 0.1}s`}}>
+                <Card className="card-modern group h-full overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     <img 
                       src={benefit.image} 
                       alt={benefit.title}
@@ -112,9 +112,9 @@ export default function Careers() {
                     </div>
                   </div>
                   <CardContent className="p-8">
-                                         <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors text-justify line-clamp-2 min-h-[3rem]">
-                       {benefit.title}
-                     </h3>
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors text-justify line-clamp-2 min-h-[3rem]">
+                      {benefit.title}
+                    </h3>
                     <p className="text-muted-foreground leading-relaxed text-justify">
                       {benefit.description}
                     </p>
@@ -125,10 +125,6 @@ export default function Careers() {
           </div>
         </div>
       </section>
-
-      {/* Open Positions section removed per request */}
-
-      {/* No application form per request */}
 
       {/* Contact Info Section */}
       <section className="py-16 bg-primary text-white">
@@ -141,11 +137,11 @@ export default function Careers() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a 
-              href="mailto:hr@bbti.edu.pk"
+              href="mailto:hiring@bigbinarytech.com"
               className="flex items-center text-lg font-semibold text-accent hover:text-white transition-colors"
             >
               <Send className="mr-3 h-6 w-6" />
-              hr@bbti.edu.pk
+              hiring@bigbinarytech.com
             </a>
             <span className="hidden sm:block text-white/60">|</span>
             <a 
