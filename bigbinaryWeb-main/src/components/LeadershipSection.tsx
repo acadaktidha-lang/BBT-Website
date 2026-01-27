@@ -49,13 +49,13 @@ export default function LeadershipSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 text-primary border-primary">
-            Leadership Team
+            Leadership
           </Badge>
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Meet Our Leaders
+            Meet Our Leader
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Experienced professionals guiding our mission to excellence
+            Experienced professional guiding our mission to excellence
           </p>
         </div>
 
@@ -64,9 +64,15 @@ export default function LeadershipSection() {
             No leadership members available at this time.
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div
+            className={
+              leadership.length === 1
+                ? 'flex justify-center'
+                : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto'
+            }
+          >
             {leadership.map((leader) => (
-              <Card key={leader.id} className="group bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg">
+              <Card key={leader.id} className="group bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg w-full max-w-sm">
                 <CardContent className="p-8 text-center relative overflow-hidden">
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-5">

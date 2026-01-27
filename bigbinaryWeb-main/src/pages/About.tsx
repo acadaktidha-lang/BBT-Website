@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import AboutSection from '@/components/AboutSection';
 import LeadershipSection from '@/components/LeadershipSection';
-import TeamSection from '@/components/TeamSection';
 import { useSEO } from '@/hooks/useSEO';
 
 export default function About() {
@@ -65,9 +64,6 @@ export default function About() {
 
       {/* Leadership Section */}
       <LeadershipSection />
-
-      {/* Team Section */}
-      <TeamSection />
 
       {/* Enhanced Mission & Vision with Binary Theme */}
       <section className="py-24 bg-muted/30 relative overflow-hidden">
