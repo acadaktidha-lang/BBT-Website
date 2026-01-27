@@ -100,7 +100,7 @@ if (coursesResponse.ok) {
   // Update SEO when specialization is loaded
   useSEO({
     title: specialization?.name,
-    description: specialization ? `${specialization.description} - Explore ${specialization.name} courses at Big Binary Tech International Institute.` : undefined,
+    description: specialization ? `${specialization.description} - Explore ${specialization.name} courses at Big Binary Tech International.` : undefined,
     keywords: specialization ? `Big Binary ${specialization.name}, Big Binary Tech ${specialization.name} courses, ${specialization.name} training, Big Binary specialization` : undefined,
     canonical: specialization ? `https://bigbinarytech.com/specializations/${specialization.slug || slug}` : undefined,
   });

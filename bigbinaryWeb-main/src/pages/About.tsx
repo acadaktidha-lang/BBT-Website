@@ -17,7 +17,7 @@ import { useSEO } from '@/hooks/useSEO';
 export default function About() {
   useSEO({
     title: 'About Us',
-    description: 'Learn about Big Binary Tech International Institute - our mission, vision, leadership team, and commitment to providing world-class technology education and training programs.',
+    description: 'Learn about Big Binary Tech International - our mission, vision, leadership team, and commitment to providing world-class technology education and training programs.',
     keywords: 'Big Binary about, Big Binary Tech team, Big Binary leadership, Big Binary mission, technology education institute',
     canonical: 'https://bigbinarytech.com/about',
   });

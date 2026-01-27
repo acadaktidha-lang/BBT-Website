@@ -18,9 +18,9 @@ export const useSEO = ({
   ogType = 'website',
 }: SEOProps) => {
   useEffect(() => {
-    const baseTitle = 'Big Binary International Institute - Big Binary Tech';
-    const baseDescription = 'Big Binary International Institute (Big Binary Tech) offers comprehensive professional training, courses, and education programs.';
-    const baseKeywords = 'Big Binary, Big Binary Tech, Big Binary International Institute, professional training, education, courses';
+    const baseTitle = 'Big Binary International - Big Binary Tech';
+    const baseDescription = 'Big Binary International (Big Binary Tech) offers comprehensive professional training, courses, and education programs.';
+    const baseKeywords = 'Big Binary, Big Binary Tech, Big Binary International, professional training, education, courses';
 
     // Update title
     if (title) {

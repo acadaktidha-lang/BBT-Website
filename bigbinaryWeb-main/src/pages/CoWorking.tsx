@@ -24,7 +24,7 @@ const classroomImage2 = '/assets/classroom.jpg';
 export default function CoWorking() {
   useSEO({
     title: 'Co-Working Space',
-    description: 'Premium co-working space at Big Binary Tech International Institute in DHA Phase 2. Modern facilities, high-speed internet, and productive environment for professionals and teams.',
+    description: 'Premium co-working space at Big Binary Tech International in DHA Phase 2. Modern facilities, high-speed internet, and productive environment for professionals and teams.',
     keywords: 'Big Binary co-working, Big Binary Tech workspace, DHA Phase 2 co-working, professional workspace, Big Binary office space',
     canonical: 'https://bigbinarytech.com/co-working',
   });

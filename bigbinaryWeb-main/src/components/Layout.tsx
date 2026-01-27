@@ -114,11 +114,11 @@ function LayoutContent() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-between h-24">
             <Link to="/" className="flex items-center">
-              <img
-                src={resolvedNavbarLogo}
-                alt="Big Binary Tech International Institute"
-                className="h-16 md:h-20 w-auto"
-              />
+                <img
+                  src={resolvedNavbarLogo}
+                  alt="Big Binary Tech International"
+                  className="h-16 md:h-20 w-auto"
+                />
             </Link>
 
             {/* Mobile Menu Button */}
@@ -356,11 +356,11 @@ function LayoutContent() {
         <div className="lg:col-span-2 space-y-8">
           <div className="slide-up">
             <div className="flex items-center space-x-4 mb-6">
-              <img
-                src={resolvedFooterLogo}
-                alt="Big Binary Tech International Institute"
-                className="h-24 md:h-28 lg:h-32 w-auto"
-              />
+                <img
+                  src={resolvedFooterLogo}
+                  alt="Big Binary Tech International"
+                  className="h-24 md:h-28 lg:h-32 w-auto"
+                />
             </div>
 
             <p className="text-xl text-white/90 leading-relaxed max-w-2xl">

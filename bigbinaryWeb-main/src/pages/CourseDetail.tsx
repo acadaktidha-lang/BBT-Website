@@ -89,7 +89,7 @@ export default function CourseDetail() {
   // Update SEO when course is loaded
   useSEO({
     title: course?.title,
-    description: course ? `${course.summary || course.introduction || ''} - Enroll in ${course.title} at Big Binary Tech International Institute.` : undefined,
+    description: course ? `${course.summary || course.introduction || ''} - Enroll in ${course.title} at Big Binary Tech International.` : undefined,
     keywords: course ? `Big Binary ${course.title}, Big Binary Tech ${course.title} course, ${course.title} training, Big Binary course, ${course.title} certification` : undefined,
     canonical: course ? `https://bigbinarytech.com/courses/${course.slug || slug}` : undefined,
   });
