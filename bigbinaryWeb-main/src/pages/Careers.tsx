@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Globe, Lightbulb, TrendingUp, Send } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Users, Globe, Lightbulb, TrendingUp, Send, GraduationCap, Briefcase, ShieldCheck, ServerCog, UserCog, Code2, ClipboardList } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 // Import images for career benefits
@@ -39,6 +40,57 @@ const careerBenefits = [
   }
 ];
 
+const talentPoolRoles = [
+  {
+    title: 'Admission Officers',
+    icon: GraduationCap,
+    summary: 'Be the first human touchpoint for learners and guide them toward the right program.',
+    highlights: ['Counseling and conversion', 'Program fit assessment']
+  },
+  {
+    title: 'Career Counselors',
+    icon: Briefcase,
+    summary: 'Help learners map their strengths into real-world career paths and placements.',
+    highlights: ['Career roadmaps', 'Interview readiness']
+  },
+  {
+    title: 'Trainers',
+    icon: Users,
+    summary: 'Deliver hands-on, industry-aligned training that makes learners job-ready.',
+    highlights: ['Project-based delivery', 'Mentorship and feedback']
+  },
+  {
+    title: 'Cyber & DevOps Experts',
+    icon: ShieldCheck,
+    summary: 'Bring modern security and infrastructure practices into the classroom.',
+    highlights: ['Real-world labs', 'Cloud and automation']
+  },
+  {
+    title: 'HR',
+    icon: UserCog,
+    summary: 'Build a people-first culture and support fast, healthy team growth.',
+    highlights: ['Recruitment ops', 'Culture and engagement']
+  },
+  {
+    title: 'Admin',
+    icon: ClipboardList,
+    summary: 'Keep operations smooth so teams can focus on students and outcomes.',
+    highlights: ['Process excellence', 'Daily coordination']
+  },
+  {
+    title: 'Developers',
+    icon: Code2,
+    summary: 'Create tools and experiences that scale learning and student success.',
+    highlights: ['Product-driven builds', 'Impact-focused delivery']
+  },
+  {
+    title: 'Coordinator',
+    icon: ServerCog,
+    summary: 'Connect teams, timelines, and learners to deliver seamless programs.',
+    highlights: ['Cross-team alignment', 'Program execution']
+  }
+];
+
 export default function Careers() {
   useSEO({
     title: 'Careers',
@@ -46,6 +98,23 @@ export default function Careers() {
     keywords: 'Big Binary careers, Big Binary Tech jobs, education careers, teaching jobs, Big Binary employment, technology education jobs',
     canonical: 'https://bigbinarytech.com/careers',
   });
+
+  const contactEmail = 'hiring@bigbinarytech.com';
+  const buildMailto = (role: string) =>
+    `mailto:${contactEmail}?subject=${encodeURIComponent(`Talent Pool - ${role}`)}&body=${encodeURIComponent('Hi Big Binary Tech team,\n\nI am interested in joining your talent pool. Please find my details below:\n\nName:\nRole of Interest:\nLinkedIn/Portfolio:\nNotes:\n')}`;
+  const [selectedRole, setSelectedRole] = useState<(typeof talentPoolRoles)[number] | null>(null);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const generalMailto = buildMailto('General Inquiry');
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -125,6 +194,146 @@ export default function Careers() {
           </div>
         </div>
       </section>
+
+      {/* Talent Pool Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-primary">
+              Join Our Talent Pool
+            </h2>
+            <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
+              We are always happy to connect with great talent. Click a role to contact HR and tell us how you can contribute.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {talentPoolRoles.map((role, index) => (
+              <button
+                key={role.title}
+                onClick={() => setSelectedRole(role)}
+                className="fade-in-scale text-left"
+                style={{animationDelay: `${index * 0.06}s`}}
+                type="button"
+              >
+                <Card className="card-modern group h-full border border-primary/10 hover:border-accent/50 transition-all duration-300">
+                  <CardContent className="p-6 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                      <role.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-primary group-hover:text-accent transition-colors">
+                        {role.title}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Learn more
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-col items-center gap-3">
+            <Button
+              size="lg"
+              className="bg-accent text-white hover:bg-accent/90"
+              onClick={() => setIsContactOpen(true)}
+            >
+              Contact HR
+            </Button>
+            <p className="text-sm text-muted-foreground text-center">
+              If your email client doesn’t open, email us at <a className="text-primary underline underline-offset-4" href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <Dialog open={!!selectedRole} onOpenChange={(open) => !open && setSelectedRole(null)}>
+        {selectedRole && (
+          <DialogContent className="max-w-2xl">
+            <DialogHeader>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <selectedRole.icon className="h-6 w-6" />
+                </div>
+                <div>
+                  <DialogTitle className="text-2xl font-black text-primary">
+                    {selectedRole.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-muted-foreground">
+                    We are building a high-impact team for the next wave of education.
+                  </DialogDescription>
+                </div>
+              </div>
+            </DialogHeader>
+
+            <div className="space-y-4">
+              <p className="text-base text-muted-foreground">
+                {selectedRole.summary}
+              </p>
+              <div className="rounded-2xl border border-primary/10 bg-muted/40 p-4">
+                <p className="text-sm font-semibold text-primary mb-2">Why this matters</p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  {selectedRole.highlights.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                If this sounds like you, we would love to hear your story and see your work.
+              </p>
+            </div>
+
+            <DialogFooter className="sm:justify-between gap-3">
+              <Button
+                variant="outline"
+                onClick={() => setSelectedRole(null)}
+              >
+                Maybe Later
+              </Button>
+              <Button
+                asChild
+                className="bg-accent text-white hover:bg-accent/90"
+              >
+                <a href={buildMailto(selectedRole.title)}>
+                  Contact HR for {selectedRole.title}
+                </a>
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        )}
+      </Dialog>
+
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-black text-primary">
+              Contact HR
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Reach out and tell us about your background, strengths, and the role you’re interested in.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3">
+            <a
+              href={generalMailto}
+              className="block rounded-lg border border-primary/10 bg-muted/40 px-4 py-3 text-sm font-semibold text-primary hover:border-accent/50 hover:text-accent transition-colors"
+            >
+              Open email to {contactEmail}
+            </a>
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={handleCopyEmail}
+            >
+              {copied ? 'Email copied' : 'Copy email address'}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Contact Info Section */}
       <section className="py-16 bg-primary text-white">
