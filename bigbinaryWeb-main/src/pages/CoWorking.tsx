@@ -17,9 +17,13 @@ import {
   BookOpen
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-// Classroom images from storage
-const classroomImage1 = '/assets/classroom.jpg';
-const classroomImage2 = '/assets/classroom.jpg';
+// Co-working location images
+const coworkingImages = [
+  '/assets/b1.jpeg',
+  '/assets/b2.png',
+  '/assets/b3.jpeg',
+  '/assets/b4.jpeg'
+];
 
 export default function CoWorking() {
   useSEO({
@@ -39,7 +43,7 @@ export default function CoWorking() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `url(${classroomImage1})`,
+            backgroundImage: `url(${coworkingImages[0]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
@@ -289,26 +293,26 @@ export default function CoWorking() {
             {/* Image Gallery */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                <div className="aspect-square rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:-translate-y-1">
                   <img 
-                    src={classroomImage1} 
-                    alt="Co-working space classroom"
+                    src={coworkingImages[0]} 
+                    alt="Co-working space exterior"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                <div className="aspect-square rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:-translate-y-1">
                   <img 
-                    src={classroomImage2} 
-                    alt="Computer lab workspace"
+                    src={coworkingImages[1]} 
+                    alt="Co-working workspace detail"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                <div className="aspect-square rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:-translate-y-1">
                   <img 
-                    src={classroomImage1} 
-                    alt="Modern work desks"
+                    src={coworkingImages[2]} 
+                    alt="Modern co-working desks"
                     className="w-full h-full object-cover"
                   />
                 </div>
