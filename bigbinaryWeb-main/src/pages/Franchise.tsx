@@ -7,6 +7,7 @@ import businessBoostImg from "/assets/business-boost.jpg";
 import comprehensiveTrainingImg from "/assets/comprehensive-training.jpg";
 import provenModelImg from "/assets/proven-model.jpg";
 import { useSEO } from '@/hooks/useSEO';
+import franchiseApplicationFormPdf from "@/components/Franchise Application Form (3).pdf";
 
 const Franchise = () => {
   useSEO({
@@ -16,13 +17,13 @@ const Franchise = () => {
     canonical: 'https://bigbinarytech.com/franchise',
   });
 
-  const BROCHURE_URL = '/assets/sample-brochure.pdf';
+  const FRANCHISE_FORM_URL = franchiseApplicationFormPdf;
   const HERO_BG_URL = '/assets/default-course-bg.jpg';
 
-  const handleDownloadBrochure = () => {
+  const handleDownloadFranchiseForm = () => {
     const link = document.createElement('a');
-    link.href = BROCHURE_URL;
-    link.download = 'Big Binary Tech Franchise Brochure.pdf';
+    link.href = FRANCHISE_FORM_URL;
+    link.download = 'Big Binary Tech Franchise Application Form.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -55,11 +56,11 @@ const Franchise = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              onClick={handleDownloadBrochure}
+              onClick={handleDownloadFranchiseForm}
               className="text-lg px-8 py-4 bg-accent hover:bg-accent/90 text-primary font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-0"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Brochure
+              Download Franchise Form
             </Button>
             <Button 
               size="lg" 
