@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Auth from "./pages/Auth";
+import Languages from "./pages/Languages";
 import AdminDashboard from "./pages/AdminDashboard";
 import SpecializationDetail from "./pages/SpecializationDetail";
 import CourseDetail from "./pages/CourseDetail";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="franchise" element={<Franchise />} />
             <Route path="careers" element={<Careers />} />
             <Route path="co-working" element={<CoWorking />} />
+              <Route path="languages" element={<Languages />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           </Route>
           <Route path="/auth" element={<Auth />} />
