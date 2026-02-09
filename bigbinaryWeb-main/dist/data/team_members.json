@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "position": "CEO",
+    "bio": "Experienced leader",
+    "image_url": "/assets/partnerships.jpg",
+    "category": "leadership",
+    "is_active": true,
+    "sort_order": 1
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "position": "Instructor",
+    "bio": "Expert teacher",
+    "image_url": "/assets/partnerships.jpg",
+    "category": "team",
+    "is_active": true,
+    "sort_order": 1
+  }
+]

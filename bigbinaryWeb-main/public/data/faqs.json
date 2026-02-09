@@ -10,5 +10,35 @@
     "answer": "Contact us for enrollment details.",
     "is_active": true,
     "sort_order": 2
+  },
+  {
+    "question": "Who can join the academy?",
+    "answer": "Beginners, career switchers, and working professionals can join.",
+    "is_active": true,
+    "sort_order": 3
+  },
+  {
+    "question": "Do I need prior coding experience?",
+    "answer": "No, the program starts from fundamentals and builds up.",
+    "is_active": true,
+    "sort_order": 4
+  },
+  {
+    "question": "What is the course duration?",
+    "answer": "It varies by track; contact us for the latest schedule.",
+    "is_active": true,
+    "sort_order": 5
+  },
+  {
+    "question": "Are classes live or recorded?",
+    "answer": "We offer live sessions with recordings available for review.",
+    "is_active": true,
+    "sort_order": 6
+  },
+  {
+    "question": "Do you provide certificates?",
+    "answer": "Yes, certificates are issued upon successful completion.",
+    "is_active": true,
+    "sort_order": 7
   }
 ]

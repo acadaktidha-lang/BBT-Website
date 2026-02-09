@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { supabase } from '@/integrations/supabase/client';
 import { useEnrollment } from '@/contexts/EnrollmentContext';
 import { 
@@ -11,7 +10,6 @@ import {
   Users, 
   Award, 
   Briefcase,
-  Clock,
   BookOpen,
   Globe,
   Laptop,
@@ -21,7 +19,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Star,
   Sparkles,
   Zap,
   TrendingUp,
@@ -42,16 +39,7 @@ import innovationImage from '/assets/innovation.jpg';
 import internshipImage from '/assets/internship.jpg';
 import partnershipsImage from '/assets/partnerships.jpg';
 import digitalLiteracyImage from '/assets/digital-literacy.jpg';
-
-interface Course {
-  id: string;
-  title: string;
-  slug: string;
-  summary: string | null;
-  audience: string | null;
-  duration: string | null;
-  specialization_id: string;
-}
+import labImage from '@/assets/lab.jpeg';
 
 interface Specialization {
   id: string;
@@ -99,16 +87,49 @@ interface FAQ {
 
 export default function Home() {
   const [specializations, setSpecializations] = useState<Specialization[]>([]);
-  const [courses, setCourses] = useState<Course[]>([]);
   const [content, setContent] = useState<WebsiteContent | null>(null);
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { openEnrollmentSidebar } = useEnrollment();
   const { assets: specAssets } = useMediaAssets('specializations');
-  const { assets: courseAssets } = useMediaAssets('courses');
   const HERO_BG_URL = '/assets/default-course-bg.jpg';
-
+  const featuredPrograms = [
+    {
+      group: 'School of Marketing',
+      items: [
+        'Shopify',
+        'Digital Media Marketing',
+        'YouTube Automation',
+        'Video Editing'
+      ]
+    },
+    {
+      group: 'For Non-Tech Professionals',
+      items: [
+        'AI for Professionals',
+        'AI for Managers',
+        'AI for Children'
+      ]
+    },
+    {
+      group: 'For Tech Professionals',
+      items: [
+        'Data Science',
+        'Generative AI',
+        'Advanced Agentic AI',
+        'Big Data',
+        'Data Analyst',
+        'Data Engineering',
+        'AI/ML Core',
+        'Web Development 3.0',
+        'Blockchain',
+        'Databases (NoSQL, MongoDB, MySQL, Supabase, PostgreSQL)',
+        'Robotics'
+      ]
+    }
+  ];
+  
   useEffect(() => {
     fetchData();
   }, []);
@@ -139,13 +160,6 @@ export default function Home() {
       if (specResponse.ok) {
         const specData = await specResponse.json();
         setSpecializations(specData);
-      }
-
-      // Fetch all courses
-      const coursesResponse = await fetch('/data/courses.json');
-      if (coursesResponse.ok) {
-        const coursesData = await coursesResponse.json();
-        setCourses(coursesData);
       }
 
       // Fetch website content
@@ -308,7 +322,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-black mb-8 text-white leading-tight tracking-tight">
                 <span className="block mb-4">Big Binary Tech</span>
                 <span className="block text-accent text-6xl md:text-7xl lg:text-8xl font-black">
-                  International Institute
+                  International 
                 </span>
               </h1>
             </div>
@@ -501,7 +515,11 @@ export default function Home() {
               <div className="card-modern group overflow-hidden h-full">
                 <div className="relative h-96 md:h-[500px] overflow-hidden">
                   <img 
+<<<<<<< HEAD
                     src="/assets/calssroom.png.jpeg" 
+=======
+                    src={labImage} 
+>>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
                     alt="Modern Computer Lab with Windows PCs"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -521,7 +539,11 @@ export default function Home() {
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img 
+<<<<<<< HEAD
                       src="/assets/calssroom.png.jpeg" 
+=======
+                      src={labImage} 
+>>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
                       alt="Apple iMac Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -539,7 +561,11 @@ export default function Home() {
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img 
+<<<<<<< HEAD
                       src="/assets/calssroom.png.jpeg" 
+=======
+                      src={labImage} 
+>>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
                       alt="Mixed Technology Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -555,9 +581,9 @@ export default function Home() {
           </div>
 
           {/* Infrastructure Features */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            <div className="fade-in-scale text-center" style={{animationDelay: '0.4s'}}>
-              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
+              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.4s'}}>
+                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Laptop className="h-8 w-8 text-accent" />
                 </div>
@@ -568,8 +594,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="fade-in-scale text-center" style={{animationDelay: '0.5s'}}>
-              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300">
+              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.5s'}}>
+                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Wifi className="h-8 w-8 text-accent" />
                 </div>
@@ -580,8 +606,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="fade-in-scale text-center" style={{animationDelay: '0.6s'}}>
-              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300">
+              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.6s'}}>
+                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Monitor className="h-8 w-8 text-accent" />
                 </div>
@@ -592,8 +618,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="fade-in-scale text-center" style={{animationDelay: '0.7s'}}>
-              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300">
+              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.7s'}}>
+                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Users className="h-8 w-8 text-accent" />
                 </div>
@@ -718,105 +744,63 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Modern Course Slider Section */}
-      {courses.length > 0 && (
-        <section className="py-24 bg-background relative overflow-hidden">
-          {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-accent"></div>
-          </div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="text-center mb-16 perspective-1000">
-              <div className="slide-up">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-primary">
-                  Featured Programs
-                </h2>
-                <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
-                  Discover our industry-leading programs designed to accelerate your tech career
-                </p>
-              </div>
+      {/* Featured Programs Section */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-accent"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 perspective-1000">
+            <div className="slide-up">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-primary">
+                Featured Programs
+              </h2>
+              <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
+                Choose a path designed for real-world outcomes, from marketing to advanced AI.
+              </p>
             </div>
-            
-            <div className="fade-in-scale relative" style={{animationDelay: '0.2s'}}>
-              <Carousel 
-                className="max-w-7xl mx-auto perspective-1000" 
-                opts={{ 
-                  align: "start", 
-                  loop: true
-                }}
-              >
-                <CarouselContent className="-ml-3 sm:-ml-4 md:-ml-6">
-                  {courses.map((course) => (
-                    <CarouselItem key={course.id} className="pl-3 sm:pl-4 md:pl-6 sm:basis-1/2 lg:basis-1/3">
-                      <div className="card-modern h-full group cursor-pointer overflow-hidden flex flex-col transform hover:scale-105 transition-all duration-500 hover:shadow-2xl border-0 shadow-lg">
-                        {/* Course Header with Gradient Accent */}
-                        <div className="relative">
-                          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-primary"></div>
-                          <div className="p-8 pb-6">
-                            <div className="flex items-center justify-between mb-6">
-                              <span className="px-4 py-2 bg-accent/10 text-accent text-sm font-bold rounded-full backdrop-blur-sm border border-accent/20">
-                                {course.audience || 'All Levels'}
-                              </span>
-                              <div className="flex text-accent">
-                                {[...Array(5)].map((_, i) => (
-                                  <Star key={i} className="h-4 w-4 fill-current drop-shadow-sm" />
-                                ))}
-                              </div>
-                            </div>
-                            
-                            <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors duration-300 text-justify line-clamp-2 min-h-[3rem]">
-                              {course.title}
-                            </h3>
-                            
-                            <p className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed text-justify">
-                              {course.summary || 'Transform your skills with our comprehensive, industry-focused curriculum designed for real-world success'}
-                            </p>
-                          </div>
-                        </div>
-                        
-                        {/* Course Footer with Consistent Button */}
-                        <div className="p-8 pt-0 border-t border-border/10 mt-auto">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2 text-muted-foreground">
-                              <Clock className="w-4 h-4" />
-                              <span className="text-sm font-medium">{course.duration || '3 Months'}</span>
-                            </div>
-                            <Link to={`/courses/${course.slug}`}>
-                              <button className="btn-3d bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-                                <span className="flex items-center justify-center">
-                                  Learn More
-                                  <ArrowRight className="ml-2 h-4 w-4" />
-                                </span>
-                              </button>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                
-                {/* Enhanced Navigation Buttons */}
-                <CarouselPrevious className="left-4 bg-white/90 backdrop-blur-md border-white/20 shadow-2xl hover:bg-white hover:shadow-3xl transition-all duration-300 text-primary hover:text-accent w-12 h-12 rounded-full" />
-                <CarouselNext className="right-4 bg-white/90 backdrop-blur-md border-white/20 shadow-2xl hover:bg-white hover:shadow-3xl transition-all duration-300 text-primary hover:text-accent w-12 h-12 rounded-full" />
-                
-                {/* Auto-play Indicator */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                  <div className="flex space-x-2">
-                    {courses.map((_, index) => (
-                      <div 
-                        key={index} 
-                        className="w-2 h-2 rounded-full bg-white/30 transition-all duration-300"
-                      />
-                    ))}
-                  </div>
+          </div>
+
+          <div className="space-y-10">
+            {featuredPrograms.map((group, index) => (
+              <div key={group.group} className="fade-in-scale" style={{animationDelay: `${index * 0.08}s`}}>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-primary">
+                    {group.group}
+                  </h3>
+                  <button
+                    onClick={openEnrollmentSidebar}
+                    className="text-sm font-bold text-accent hover:text-primary transition-colors"
+                  >
+                    Request Details
+                  </button>
                 </div>
-              </Carousel>
-            </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {group.items.map((item) => (
+                    <div key={item} className="card-modern p-6 h-full flex flex-col justify-between shadow-lg hover:shadow-2xl transition-all duration-300">
+                      <div>
+                        <p className="text-lg font-black text-primary mb-2">
+                          {item}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Industry-focused curriculum with hands-on projects and career support.
+                        </p>
+                      </div>
+                      <button
+                        onClick={openEnrollmentSidebar}
+                        className="mt-6 btn-3d bg-primary hover:bg-accent text-white font-bold py-3 px-4 rounded-xl transition-all duration-300"
+                      >
+                        Request Details
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Modern Commitment Section */}
       {content?.commitment && (

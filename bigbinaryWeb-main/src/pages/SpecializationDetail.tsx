@@ -25,21 +25,22 @@ interface Course {
   id: string;
   title: string;
   slug: string;
-  summary: string;
-  introduction: string;
-  duration: string;
-  price: number;
-  image_url: string;
-  audience: string;
+  summary?: string;
+  image_url?: string;
+  specialization_slug?: string;
+  duration?: string;
+  price?: number;
+  audience?: string;
 }
+
 
 interface Specialization {
   id: string;
   name: string;
+  slug: string;
   description: string;
-  image_url: string;
+  image_url?: string;
 }
-
 export default function SpecializationDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [specialization, setSpecialization] = useState<Specialization | null>(null);
@@ -76,11 +77,13 @@ export default function SpecializationDetail() {
           setSpecialization(specData);
 
           // Fetch courses for this specialization (mock all courses)
-          const coursesResponse = await fetch('/data/courses.json');
-          if (coursesResponse.ok) {
-            const coursesData = await coursesResponse.json();
-            setCourses(coursesData);
-          }
+         const coursesResponse = await fetch('/data/courses.json');
+if (coursesResponse.ok) {
+  const coursesData: Course[] = await coursesResponse.json();
+  const filtered = coursesData.filter(c => c.specialization_slug === slug);
+  setCourses(filtered);
+}
+
         }
       }
     } catch (error) {
@@ -97,7 +100,7 @@ export default function SpecializationDetail() {
   // Update SEO when specialization is loaded
   useSEO({
     title: specialization?.name,
-    description: specialization ? `${specialization.description} - Explore ${specialization.name} courses at Big Binary Tech International Institute.` : undefined,
+    description: specialization ? `${specialization.description} - Explore ${specialization.name} courses at Big Binary Tech International.` : undefined,
     keywords: specialization ? `Big Binary ${specialization.name}, Big Binary Tech ${specialization.name} courses, ${specialization.name} training, Big Binary specialization` : undefined,
     canonical: specialization ? `https://bigbinarytech.com/specializations/${specialization.slug || slug}` : undefined,
   });

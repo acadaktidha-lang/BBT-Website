@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { 
   Award, 
   Users, 
@@ -12,16 +13,17 @@ import {
 } from 'lucide-react';
 import AboutSection from '@/components/AboutSection';
 import LeadershipSection from '@/components/LeadershipSection';
-import TeamSection from '@/components/TeamSection';
 import { useSEO } from '@/hooks/useSEO';
 
 export default function About() {
   useSEO({
     title: 'About Us',
-    description: 'Learn about Big Binary Tech International Institute - our mission, vision, leadership team, and commitment to providing world-class technology education and training programs.',
+    description: 'Learn about Big Binary Tech International - our mission, vision, leadership team, and commitment to providing world-class technology education and training programs.',
     keywords: 'Big Binary about, Big Binary Tech team, Big Binary leadership, Big Binary mission, technology education institute',
     canonical: 'https://bigbinarytech.com/about',
   });
+  const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <div className="min-h-screen">
       {/* Enhanced Hero Section with Background Image */}
@@ -65,9 +67,6 @@ export default function About() {
 
       {/* Leadership Section */}
       <LeadershipSection />
-
-      {/* Team Section */}
-      <TeamSection />
 
       {/* Enhanced Mission & Vision with Binary Theme */}
       <section className="py-24 bg-muted/30 relative overflow-hidden">
@@ -171,6 +170,90 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Location Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="w-full lg:w-1/2">
+              <div className="grid gap-4">
+                <button
+                  type="button"
+                  onClick={() => setActiveImage({ src: '/assets/b1.jpeg', alt: 'Big Binary Tech campus exterior' })}
+                  className="rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(17,24,39,0.22)] ring-1 ring-black/10 transition-transform duration-500 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <img
+                    src="/assets/b1.jpeg"
+                    alt="Big Binary Tech campus exterior"
+                    className="h-64 w-full object-cover"
+                  />
+                </button>
+                <div className="grid grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setActiveImage({ src: '/assets/b3.jpeg', alt: 'Big Binary Tech campus entrance' })}
+                    className="rounded-2xl overflow-hidden shadow-[0_18px_40px_rgba(17,24,39,0.2)] ring-1 ring-black/10 transition-transform duration-500 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    <img
+                      src="/assets/b3.jpeg"
+                      alt="Big Binary Tech campus entrance"
+                      className="h-44 w-full object-cover"
+                    />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveImage({ src: '/assets/b4.jpeg', alt: 'Big Binary Tech campus workspace' })}
+                    className="rounded-2xl overflow-hidden shadow-[0_18px_40px_rgba(17,24,39,0.2)] ring-1 ring-black/10 transition-transform duration-500 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    <img
+                      src="/assets/b4.jpeg"
+                      alt="Big Binary Tech campus workspace"
+                      className="h-44 w-full object-cover"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-black text-primary mb-6">
+                Visit Our Campus
+              </h2>
+              <div className="w-20 h-1 bg-accent rounded mb-6"></div>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Come see where learning turns into real-world momentum. Our campus is designed for
+                collaboration, innovation, and hands-on growth.
+              </p>
+              <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-lg">
+                <p className="text-sm font-semibold uppercase tracking-wide text-accent mb-2">
+                  Address
+                </p>
+                <p className="text-lg font-bold text-primary">
+                  2nd Floor, 444, DHA Phase 2 Q-Block Rehman Villas, Lahore, 54000
+                </p>
+                <div className="mt-4">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-accent mb-1">
+                    Hours
+                  </p>
+                  <p className="text-base text-muted-foreground">Closes at 8 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Dialog open={!!activeImage} onOpenChange={(open) => !open && setActiveImage(null)}>
+        {activeImage && (
+          <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black">
+            <img
+              src={activeImage.src}
+              alt={activeImage.alt}
+              className="w-full h-auto object-contain"
+            />
+          </DialogContent>
+        )}
+      </Dialog>
     </div>
   );
 }

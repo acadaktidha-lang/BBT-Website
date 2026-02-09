@@ -4,20 +4,23 @@
     "title": "Advanced Agentic AI",
     "slug": "advanced-agentic-ai",
     "summary": "Learn advanced AI agent development",
-    "image_url": "/assets/courses/advanced-agentic-ai.jpg"
+    "image_url": "/assets/courses/advanced-agentic-ai.jpg",
+    "specialization_slug": "ai-specialization"
   },
   {
     "id": "2",
     "title": "Data Science",
     "slug": "data-science",
     "summary": "Master data science techniques",
-    "image_url": "/assets/courses/data-science.jpg"
+    "image_url": "/assets/courses/data-science.jpg",
+    "specialization_slug": "data-specialization"
   },
   {
     "id": "3",
     "title": "Web Development",
     "slug": "web-development",
     "summary": "Build modern web applications",
-    "image_url": "/assets/courses/web-development.jpg"
+    "image_url": "/assets/courses/web-development.jpg",
+    "specialization_slug": "web-development"
   }
 ]
