@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { supabase } from '@/integrations/supabase/client';
 import { useEnrollment } from '@/contexts/EnrollmentContext';
-import { 
-  ArrowRight, 
-  Users, 
-  Award, 
+import {
+  ArrowRight,
+  Users,
+  Award,
   Briefcase,
   BookOpen,
   Globe,
@@ -91,26 +87,20 @@ export default function Home() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
   const { openEnrollmentSidebar } = useEnrollment();
   const { assets: specAssets } = useMediaAssets('specializations');
+
   const HERO_BG_URL = '/assets/default-course-bg.jpg';
+
   const featuredPrograms = [
     {
       group: 'School of Marketing',
-      items: [
-        'Shopify',
-        'Digital Media Marketing',
-        'YouTube Automation',
-        'Video Editing'
-      ]
+      items: ['Shopify', 'Digital Media Marketing', 'YouTube Automation', 'Video Editing']
     },
     {
       group: 'For Non-Tech Professionals',
-      items: [
-        'AI for Professionals',
-        'AI for Managers',
-        'AI for Children'
-      ]
+      items: ['AI for Professionals', 'AI for Managers', 'AI for Children']
     },
     {
       group: 'For Tech Professionals',
@@ -129,32 +119,26 @@ export default function Home() {
       ]
     }
   ];
-  
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  // Scroll to top functionality
+  // Scroll to top button visibility
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setShowScrollTop(window.scrollY > 300);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const fetchData = async () => {
     try {
       setLoading(true);
-      
+
       // Fetch specializations
       const specResponse = await fetch('/data/specializations.json');
       if (specResponse.ok) {
@@ -182,9 +166,9 @@ export default function Home() {
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to load content. Please try again.",
-        variant: "destructive",
+        title: 'Error',
+        description: 'Failed to load content. Please try again.',
+        variant: 'destructive'
       });
     } finally {
       setLoading(false);
@@ -197,14 +181,15 @@ export default function Home() {
 
     // Try media asset by convention key
     const specKey = `specialization_${slug}`;
-    const foundSpec = specAssets.find(a => a.asset_key === specKey);
+    const foundSpec = specAssets.find((a) => a.asset_key === specKey);
     if (foundSpec?.asset_url) return foundSpec.asset_url;
-    // No local fallback
+
+    // No fallback
     return '';
   };
 
   const getIconComponent = (iconString: string) => {
-    const iconMap: { [key: string]: any } = {
+    const iconMap: Record<string, any> = {
       '🤝': Users,
       '🌐': Globe,
       '💼': Briefcase,
@@ -216,9 +201,9 @@ export default function Home() {
       '🚀': Rocket,
       '🛡️': Shield,
       '📈': TrendingUp,
-      '✨': Sparkles,
+      '✨': Sparkles
     };
-    
+
     const IconComponent = iconMap[iconString] || BookOpen;
     return <IconComponent className="h-8 w-8 text-primary" />;
   };
@@ -236,22 +221,57 @@ export default function Home() {
       digitalLiteracyImage
     ];
 
-    if (titleLower.includes('global') || titleLower.includes('standard') || titleLower.includes('international') || titleLower.includes('world')) {
+    if (
+      titleLower.includes('global') ||
+      titleLower.includes('standard') ||
+      titleLower.includes('international') ||
+      titleLower.includes('world')
+    ) {
       return globalStandardsImage;
     }
-    if (titleLower.includes('market') || titleLower.includes('ready') || titleLower.includes('job') || titleLower.includes('career') || titleLower.includes('employment')) {
+    if (
+      titleLower.includes('market') ||
+      titleLower.includes('ready') ||
+      titleLower.includes('job') ||
+      titleLower.includes('career') ||
+      titleLower.includes('employment')
+    ) {
       return marketReadyImage;
     }
-    if (titleLower.includes('innovation') || titleLower.includes('cutting') || titleLower.includes('technology') || titleLower.includes('tech') || titleLower.includes('modern')) {
+    if (
+      titleLower.includes('innovation') ||
+      titleLower.includes('cutting') ||
+      titleLower.includes('technology') ||
+      titleLower.includes('tech') ||
+      titleLower.includes('modern')
+    ) {
       return innovationImage;
     }
-    if (titleLower.includes('internship') || titleLower.includes('hands') || titleLower.includes('practical') || titleLower.includes('experience') || titleLower.includes('training')) {
+    if (
+      titleLower.includes('internship') ||
+      titleLower.includes('hands') ||
+      titleLower.includes('practical') ||
+      titleLower.includes('experience') ||
+      titleLower.includes('training')
+    ) {
       return internshipImage;
     }
-    if (titleLower.includes('partnership') || titleLower.includes('industry') || titleLower.includes('network') || titleLower.includes('connection') || titleLower.includes('collaboration')) {
+    if (
+      titleLower.includes('partnership') ||
+      titleLower.includes('industry') ||
+      titleLower.includes('network') ||
+      titleLower.includes('connection') ||
+      titleLower.includes('collaboration')
+    ) {
       return partnershipsImage;
     }
-    if (titleLower.includes('digital') || titleLower.includes('literacy') || titleLower.includes('skill') || titleLower.includes('expert') || titleLower.includes('learn')) {
+    if (
+      titleLower.includes('digital') ||
+      titleLower.includes('literacy') ||
+      titleLower.includes('skill') ||
+      titleLower.includes('expert') ||
+      titleLower.includes('learn')
+    ) {
       return digitalLiteracyImage;
     }
 
@@ -275,8 +295,8 @@ export default function Home() {
       let hash = 0;
       for (let i = 0; i < str.length; i++) {
         const char = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash;
+        hash = (hash << 5) - hash + char;
+        hash |= 0;
       }
       return Math.abs(hash);
     };
@@ -298,10 +318,10 @@ export default function Home() {
       {/* Modern Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${HERO_BG_URL})`,
+            backgroundImage: `url(${HERO_BG_URL})`
           }}
         >
           <div className="absolute inset-0 bg-primary/50"></div>
@@ -310,9 +330,18 @@ export default function Home() {
         {/* Floating 3D Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-3xl floating blur-2xl"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-accent/30 rounded-full floating blur-xl" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-32 left-1/4 w-20 h-20 bg-accent/25 rounded-2xl floating blur-xl" style={{animationDelay: '4s'}}></div>
-          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-accent/20 rounded-full floating blur-lg" style={{animationDelay: '1s'}}></div>
+          <div
+            className="absolute top-40 right-20 w-24 h-24 bg-accent/30 rounded-full floating blur-xl"
+            style={{ animationDelay: '2s' }}
+          ></div>
+          <div
+            className="absolute bottom-32 left-1/4 w-20 h-20 bg-accent/25 rounded-2xl floating blur-xl"
+            style={{ animationDelay: '4s' }}
+          ></div>
+          <div
+            className="absolute top-1/2 right-1/3 w-16 h-16 bg-accent/20 rounded-full floating blur-lg"
+            style={{ animationDelay: '1s' }}
+          ></div>
         </div>
 
         <div className="relative container mx-auto px-4 py-20 lg:py-32 text-center z-10">
@@ -322,20 +351,23 @@ export default function Home() {
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-black mb-8 text-white leading-tight tracking-tight">
                 <span className="block mb-4">Big Binary Tech</span>
                 <span className="block text-accent text-6xl md:text-7xl lg:text-8xl font-black">
-                  International 
+                  International
                 </span>
               </h1>
             </div>
-            
+
             {/* Subtitle */}
-            <div className="slide-up" style={{animationDelay: '0.2s'}}>
-                             <p className="text-xl md:text-2xl lg:text-3xl mb-16 text-white/90 leading-relaxed max-w-4xl mx-auto font-light text-justify">
-                {content?.hero?.subtitle || "Transform Your Future with Cutting-Edge Technology Education"}
+            <div className="slide-up" style={{ animationDelay: '0.2s' }}>
+              <p className="text-xl md:text-2xl lg:text-3xl mb-16 text-white/90 leading-relaxed max-w-4xl mx-auto font-light text-justify">
+                {content?.hero?.subtitle || 'Transform Your Future with Cutting-Edge Technology Education'}
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="slide-up flex flex-col sm:flex-row gap-6 justify-center mb-20" style={{animationDelay: '0.4s'}}>
+            <div
+              className="slide-up flex flex-col sm:flex-row gap-6 justify-center mb-20"
+              style={{ animationDelay: '0.4s' }}
+            >
               <button className="btn-3d bg-accent hover:bg-accent/90 text-white font-bold text-lg px-10 py-5 rounded-2xl shadow-2xl">
                 <div className="flex items-center justify-center">
                   <Sparkles className="mr-3 h-6 w-6" />
@@ -343,7 +375,7 @@ export default function Home() {
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </div>
               </button>
-              <button 
+              <button
                 onClick={() => window.open('https://wa.me/923260188811', '_blank')}
                 className="btn-3d glass-card text-white hover:bg-white/20 font-bold text-lg px-10 py-5 rounded-2xl"
               >
@@ -355,7 +387,10 @@ export default function Home() {
             </div>
 
             {/* Modern Stats Cards */}
-            <div className="fade-in-scale grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:justify-items-center gap-4 md:gap-6 lg:gap-1 max-w-6xl mx-auto" style={{animationDelay: '0.6s'}}>
+            <div
+              className="fade-in-scale grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 lg:justify-items-center gap-4 md:gap-6 lg:gap-1 max-w-6xl mx-auto"
+              style={{ animationDelay: '0.6s' }}
+            >
               <div className="glass-card p-6 text-center transform hover:scale-105 transition-all duration-300">
                 <div className="text-4xl font-black text-accent mb-3">1000+</div>
                 <div className="text-white/80 font-medium text-justify">Students Graduated</div>
@@ -398,15 +433,15 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 perspective-1000">
               {content.highlights.items.map((highlight, index) => (
-                <div key={index} className="fade-in-scale" style={{animationDelay: `${index * 0.1}s`}}>
+                <div key={index} className="fade-in-scale" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="card-modern text-center group h-full overflow-hidden">
                     {/* Image Container */}
                     <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={getCardImage(highlight.title, highlight.description)} 
+                      <img
+                        src={getCardImage(highlight.title, highlight.description)}
                         alt={highlight.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
@@ -417,10 +452,10 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="p-8">
-                                             <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors text-justify line-clamp-2 min-h-[3rem]">
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors text-justify line-clamp-2 min-h-[3rem]">
                         {highlight.title}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed text-justify">
@@ -450,15 +485,15 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 perspective-1000">
               {content.why_choose_us.items.map((item, index) => (
-                <div key={index} className="fade-in-scale" style={{animationDelay: `${index * 0.1}s`}}>
+                <div key={index} className="fade-in-scale" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="card-modern group h-full overflow-hidden">
                     {/* Image Container */}
                     <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={getCardImage(item.title, item.description)} 
+                      <img
+                        src={getCardImage(item.title, item.description)}
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
@@ -469,10 +504,10 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="p-8">
-                                             <h3 className="text-lg md:text-xl font-black text-primary mb-4 group-hover:text-accent transition-colors text-justify line-clamp-2 min-h-[3rem]">
+                      <h3 className="text-lg md:text-xl font-black text-primary mb-4 group-hover:text-accent transition-colors text-justify line-clamp-2 min-h-[3rem]">
                         {item.title}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed text-justify">
@@ -489,11 +524,10 @@ export default function Home() {
 
       {/* Modern Classroom Infrastructure Section */}
       <section className="py-24 bg-muted/30 relative overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-accent"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 perspective-1000">
             <div className="slide-up">
@@ -502,7 +536,7 @@ export default function Home() {
                 <span className="block text-accent">Classroom Infrastructure</span>
               </h2>
               <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
-                             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
                 Experience learning in our modern, fully-equipped computer labs with cutting-edge technology
               </p>
             </div>
@@ -511,15 +545,11 @@ export default function Home() {
           {/* Classroom Images Collage */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 mb-16">
             {/* Main Large Image */}
-            <div className="lg:col-span-8 fade-in-scale" style={{animationDelay: '0.1s'}}>
+            <div className="lg:col-span-8 fade-in-scale" style={{ animationDelay: '0.1s' }}>
               <div className="card-modern group overflow-hidden h-full">
                 <div className="relative h-96 md:h-[500px] overflow-hidden">
-                  <img 
-<<<<<<< HEAD
-                    src="/assets/calssroom.png.jpeg" 
-=======
-                    src={labImage} 
->>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
+                  <img
+                    src={labImage}
                     alt="Modern Computer Lab with Windows PCs"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -534,16 +564,11 @@ export default function Home() {
 
             {/* Side Images Stack */}
             <div className="lg:col-span-4 space-y-6">
-              {/* Apple iMac Lab */}
-              <div className="fade-in-scale" style={{animationDelay: '0.2s'}}>
+              <div className="fade-in-scale" style={{ animationDelay: '0.2s' }}>
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
-                    <img 
-<<<<<<< HEAD
-                      src="/assets/calssroom.png.jpeg" 
-=======
-                      src={labImage} 
->>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
+                    <img
+                      src={labImage}
                       alt="Apple iMac Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -556,16 +581,11 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Mixed Technology Lab */}
-              <div className="fade-in-scale" style={{animationDelay: '0.3s'}}>
+              <div className="fade-in-scale" style={{ animationDelay: '0.3s' }}>
                 <div className="card-modern group overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
-                    <img 
-<<<<<<< HEAD
-                      src="/assets/calssroom.png.jpeg" 
-=======
-                      src={labImage} 
->>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
+                    <img
+                      src={labImage}
                       alt="Mixed Technology Computer Lab"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -581,50 +601,58 @@ export default function Home() {
           </div>
 
           {/* Infrastructure Features */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
-              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.4s'}}>
-                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
+            <div className="fade-in-scale text-center h-full" style={{ animationDelay: '0.4s' }}>
+              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Laptop className="h-8 w-8 text-accent" />
                 </div>
-                                  <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">Latest Hardware</h3>
-                  <p className="text-muted-foreground leading-relaxed text-justify">
+                <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">
+                  Latest Hardware
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   High-performance computers with the latest processors and graphics cards
                 </p>
               </div>
             </div>
 
-              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.5s'}}>
-                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
+            <div className="fade-in-scale text-center h-full" style={{ animationDelay: '0.5s' }}>
+              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Wifi className="h-8 w-8 text-accent" />
                 </div>
-                                 <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">High-Speed Internet</h3>
-                 <p className="text-muted-foreground leading-relaxed text-justify">
+                <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">
+                  High-Speed Internet
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   Fiber-optic internet connection for seamless online learning and research
                 </p>
               </div>
             </div>
 
-              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.6s'}}>
-                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
+            <div className="fade-in-scale text-center h-full" style={{ animationDelay: '0.6s' }}>
+              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Monitor className="h-8 w-8 text-accent" />
                 </div>
-                                 <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">Professional Software</h3>
-                 <p className="text-muted-foreground leading-relaxed text-justify">
+                <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">
+                  Professional Software
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   Industry-standard software licenses for all major development tools
                 </p>
               </div>
             </div>
 
-              <div className="fade-in-scale text-center h-full" style={{animationDelay: '0.7s'}}>
-                <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
+            <div className="fade-in-scale text-center h-full" style={{ animationDelay: '0.7s' }}>
+              <div className="card-modern p-8 group hover:scale-105 transition-all duration-300 h-full flex flex-col">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors">
                   <Users className="h-8 w-8 text-accent" />
                 </div>
-                                 <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">Collaborative Space</h3>
-                 <p className="text-muted-foreground leading-relaxed text-justify">
+                <h3 className="text-lg md:text-xl font-black text-primary mb-4 text-justify line-clamp-2 min-h-[2.5rem]">
+                  Collaborative Space
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   Designed for team projects and interactive learning experiences
                 </p>
               </div>
@@ -693,39 +721,36 @@ export default function Home() {
                 Our Specializations
               </h2>
               <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
-                             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
                 Each program is crafted with industry expertise and designed for maximum career impact
               </p>
             </div>
           </div>
-          
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
             {specializations.map((specialization, index) => (
-              <div key={specialization.id} className="fade-in-scale" style={{animationDelay: `${index * 0.1}s`}}>
+              <div key={specialization.id} className="fade-in-scale" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="card-modern group overflow-hidden cursor-pointer h-full flex flex-col">
-                  {/* Image Container - Always show image */}
                   <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={getImageUrl(specialization.slug, specialization.image_url)} 
+                    <img
+                      src={getImageUrl(specialization.slug, specialization.image_url)}
                       alt={specialization.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       onError={(e) => {
-                        // If image fails, clear src to avoid broken image icon
                         e.currentTarget.src = '';
                       }}
                     />
                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-accent/30 transition-all duration-300"></div>
                   </div>
-                  
-                  {/* Content */}
+
                   <div className="p-8 flex flex-col flex-grow">
-                                         <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors duration-300 text-justify line-clamp-2 min-h-[3rem]">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors duration-300 text-justify line-clamp-2 min-h-[3rem]">
                       {specialization.name}
                     </h3>
-                     <p className="text-muted-foreground mb-6 leading-relaxed flex-grow text-justify">
+                    <p className="text-muted-foreground mb-6 leading-relaxed flex-grow text-justify">
                       {specialization.description}
                     </p>
-                    
+
                     <div className="mt-auto pt-4">
                       <Link to={`/specializations/${specialization.slug}`}>
                         <button className="btn-3d w-full bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
@@ -743,7 +768,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Featured Programs Section */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -764,11 +789,9 @@ export default function Home() {
 
           <div className="space-y-10">
             {featuredPrograms.map((group, index) => (
-              <div key={group.group} className="fade-in-scale" style={{animationDelay: `${index * 0.08}s`}}>
+              <div key={group.group} className="fade-in-scale" style={{ animationDelay: `${index * 0.08}s` }}>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-                  <h3 className="text-2xl md:text-3xl font-black text-primary">
-                    {group.group}
-                  </h3>
+                  <h3 className="text-2xl md:text-3xl font-black text-primary">{group.group}</h3>
                   <button
                     onClick={openEnrollmentSidebar}
                     className="text-sm font-bold text-accent hover:text-primary transition-colors"
@@ -776,17 +799,20 @@ export default function Home() {
                     Request Details
                   </button>
                 </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {group.items.map((item) => (
-                    <div key={item} className="card-modern p-6 h-full flex flex-col justify-between shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div
+                      key={item}
+                      className="card-modern p-6 h-full flex flex-col justify-between shadow-lg hover:shadow-2xl transition-all duration-300"
+                    >
                       <div>
-                        <p className="text-lg font-black text-primary mb-2">
-                          {item}
-                        </p>
+                        <p className="text-lg font-black text-primary mb-2">{item}</p>
                         <p className="text-sm text-muted-foreground">
                           Industry-focused curriculum with hands-on projects and career support.
                         </p>
                       </div>
+
                       <button
                         onClick={openEnrollmentSidebar}
                         className="mt-6 btn-3d bg-primary hover:bg-accent text-white font-bold py-3 px-4 rounded-xl transition-all duration-300"
@@ -812,12 +838,12 @@ export default function Home() {
                   {content.commitment.title}
                 </h2>
                 <div className="w-24 h-1 bg-accent rounded mx-auto mb-8"></div>
-                                 <p className="text-xl text-muted-foreground mb-16 leading-relaxed max-w-3xl mx-auto text-justify">
+                <p className="text-xl text-muted-foreground mb-16 leading-relaxed max-w-3xl mx-auto text-justify">
                   {content.commitment.description}
                 </p>
               </div>
-              
-              <div className="fade-in-scale grid sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{animationDelay: '0.2s'}}>
+
+              <div className="fade-in-scale grid sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ animationDelay: '0.2s' }}>
                 {content.commitment.features.map((feature, index) => (
                   <div key={index} className="card-modern p-6 text-left group">
                     <div className="flex items-center space-x-4">
@@ -844,7 +870,7 @@ export default function Home() {
                   Frequently Asked Questions
                 </h2>
                 <div className="w-24 h-1 bg-accent rounded mx-auto mb-6"></div>
-                                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center">
                   Get answers to the most common questions about our programs
                 </p>
               </div>
@@ -862,9 +888,7 @@ export default function Home() {
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pb-6 bg-muted/20">
-                      <p className="text-muted-foreground leading-relaxed text-lg">
-                        {faq.answer}
-                      </p>
+                      <p className="text-muted-foreground leading-relaxed text-lg">{faq.answer}</p>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -878,26 +902,28 @@ export default function Home() {
       {content?.contact && (
         <section className="py-32 bg-primary text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
-          
-          {/* Floating Elements */}
+
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-10 right-20 w-24 h-24 bg-accent/20 rounded-full floating blur-xl"></div>
-            <div className="absolute bottom-20 left-32 w-16 h-16 bg-accent/30 rounded-2xl floating blur-lg" style={{animationDelay: '2s'}}></div>
+            <div
+              className="absolute bottom-20 left-32 w-16 h-16 bg-accent/30 rounded-2xl floating blur-lg"
+              style={{ animationDelay: '2s' }}
+            ></div>
           </div>
-          
+
           <div className="container mx-auto px-4 text-center relative z-10">
             <div className="slide-up">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-white">
-                Ready to Start Your 
+                Ready to Start Your
                 <span className="block text-accent">Journey?</span>
               </h2>
-                             <p className="text-xl lg:text-2xl mb-16 text-white/90 max-w-4xl mx-auto font-light leading-relaxed text-justify">
+              <p className="text-xl lg:text-2xl mb-16 text-white/90 max-w-4xl mx-auto font-light leading-relaxed text-justify">
                 Join thousands of students who have transformed their careers with cutting-edge technology education
               </p>
             </div>
-            
-            <div className="fade-in-scale flex flex-col sm:flex-row gap-6 justify-center mb-20" style={{animationDelay: '0.2s'}}>
-              <button 
+
+            <div className="fade-in-scale flex flex-col sm:flex-row gap-6 justify-center mb-20" style={{ animationDelay: '0.2s' }}>
+              <button
                 onClick={openEnrollmentSidebar}
                 className="btn-3d bg-accent hover:bg-accent/90 text-white font-bold text-lg px-10 py-5 rounded-2xl shadow-2xl"
               >
@@ -913,8 +939,8 @@ export default function Home() {
                 </div>
               </button>
             </div>
-            
-            <div className="fade-in-scale grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto" style={{animationDelay: '0.4s'}}>
+
+            <div className="fade-in-scale grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto" style={{ animationDelay: '0.4s' }}>
               <div className="glass-card p-8 text-center group hover:scale-105 transition-all duration-300">
                 <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-colors">
                   <Phone className="h-8 w-8 text-accent" />
@@ -922,6 +948,7 @@ export default function Home() {
                 <h4 className="text-xl font-black text-white mb-3">Call Us</h4>
                 <p className="text-white/80 font-medium">+92 326 0188811</p>
               </div>
+
               <div className="glass-card p-8 text-center group hover:scale-105 transition-all duration-300">
                 <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-colors">
                   <Mail className="h-8 w-8 text-accent" />
@@ -929,12 +956,15 @@ export default function Home() {
                 <h4 className="text-xl font-black text-white mb-3">Email Us</h4>
                 <p className="text-white/80 font-medium">info@bbti.edu.pk</p>
               </div>
+
               <div className="glass-card p-8 text-center group hover:scale-105 transition-all duration-300">
                 <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-colors">
                   <MapPin className="h-8 w-8 text-accent" />
                 </div>
                 <h4 className="text-xl font-black text-white mb-3">Visit Us</h4>
-                <p className="text-white/80 font-medium text-sm leading-relaxed">2nd Floor, {content.contact.address}</p>
+                <p className="text-white/80 font-medium text-sm leading-relaxed">
+                  2nd Floor, {content.contact.address}
+                </p>
               </div>
             </div>
           </div>
@@ -945,13 +975,12 @@ export default function Home() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-12 h-12 bg-white hover:bg-gray-100 text-blue-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-12 h-12 bg-white hover:bg-gray-100 text-blue-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
           aria-label="Scroll to top"
         >
           <ChevronUp className="h-6 w-6" />
         </button>
       )}
-
     </div>
   );
 }
