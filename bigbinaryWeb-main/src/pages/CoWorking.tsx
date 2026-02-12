@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
+import {
   Wifi,
   Zap,
   Car,
@@ -17,11 +17,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
-<<<<<<< HEAD
-// Classroom images from storage
-const classroomImage1 = '/assets/calssroom.png.jpeg';
-const classroomImage2 = '/assets/calssroom.png.jpeg';
-=======
+
 // Co-working location images
 const coworkingImages = [
   '/assets/b1.jpeg',
@@ -29,15 +25,17 @@ const coworkingImages = [
   '/assets/b3.jpeg',
   '/assets/b4.jpeg'
 ];
->>>>>>> 079fa9bd948c735c42c9c2d4da4618ad798250ef
 
 export default function CoWorking() {
   useSEO({
     title: 'Co-Working Space',
-    description: 'Premium co-working space at Big Binary Tech International in DHA Phase 2. Modern facilities, high-speed internet, and productive environment for professionals and teams.',
-    keywords: 'Big Binary co-working, Big Binary Tech workspace, DHA Phase 2 co-working, professional workspace, Big Binary office space',
-    canonical: 'https://bigbinarytech.com/co-working',
+    description:
+      'Premium co-working space at Big Binary Tech International in DHA Phase 2. Modern facilities, high-speed internet, and productive environment for professionals and teams.',
+    keywords:
+      'Big Binary co-working, Big Binary Tech workspace, DHA Phase 2 co-working, professional workspace, Big Binary office space',
+    canonical: 'https://bigbinarytech.com/co-working'
   });
+
   const handleContactClick = () => {
     window.open('https://wa.me/923260188811', '_blank');
   };
@@ -46,9 +44,9 @@ export default function CoWorking() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-blue-600 text-white py-20 min-h-[70vh] flex items-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
+          style={{
             backgroundImage: `url(${coworkingImages[0]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
@@ -60,15 +58,14 @@ export default function CoWorking() {
             <Badge variant="secondary" className="text-primary px-6 py-2 text-lg">
               Professional Co-Working Space
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-black">
-              Your Next Office Awaits
-            </h1>
+            <h1 className="text-5xl lg:text-7xl font-black">Your Next Office Awaits</h1>
             <p className="text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Premium co-working space in the heart of DHA Phase 2. Modern facilities, high-speed internet, and a productive environment for professionals and teams.
+              Premium co-working space in the heart of DHA Phase 2. Modern facilities, high-speed
+              internet, and a productive environment for professionals and teams.
             </p>
-            <Button 
+            <Button
               onClick={handleContactClick}
-              size="lg" 
+              size="lg"
               className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 mt-4"
             >
               Contact Us Now
@@ -194,7 +191,9 @@ export default function CoWorking() {
                 <Monitor className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-black text-primary mb-4">Premium PCs</h3>
-              <p className="text-muted-foreground leading-relaxed">MacBook and high-performance Windows PCs available</p>
+              <p className="text-muted-foreground leading-relaxed">
+                MacBook and high-performance Windows PCs available
+              </p>
             </Card>
 
             <Card className="card-modern p-8 text-center group">
@@ -202,7 +201,9 @@ export default function CoWorking() {
                 <Wifi className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-black text-primary mb-4">High-Speed Internet</h3>
-              <p className="text-muted-foreground leading-relaxed">Ultra-fast fiber optic connection for seamless work</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Ultra-fast fiber optic connection for seamless work
+              </p>
             </Card>
 
             <Card className="card-modern p-8 text-center group">
@@ -210,7 +211,9 @@ export default function CoWorking() {
                 <Zap className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-black text-primary mb-4">Power Backup</h3>
-              <p className="text-muted-foreground leading-relaxed">Uninterrupted power supply with backup generators</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Uninterrupted power supply with backup generators
+              </p>
             </Card>
 
             <Card className="card-modern p-8 text-center group">
@@ -218,7 +221,9 @@ export default function CoWorking() {
                 <Car className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-black text-primary mb-4">Free Parking</h3>
-              <p className="text-muted-foreground leading-relaxed">Secure parking space for all members</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Secure parking space for all members
+              </p>
             </Card>
 
             <Card className="card-modern p-8 text-center group">
@@ -226,7 +231,9 @@ export default function CoWorking() {
                 <Shield className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-black text-primary mb-4">24/7 Security</h3>
-              <p className="text-muted-foreground leading-relaxed">Safe and secure environment with CCTV monitoring</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Safe and secure environment with CCTV monitoring
+              </p>
             </Card>
 
             <Card className="card-modern p-8 text-center group">
@@ -234,7 +241,9 @@ export default function CoWorking() {
                 <Coffee className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-black text-primary mb-4">Training Center</h3>
-              <p className="text-muted-foreground leading-relaxed">Access to professional training facilities</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Access to professional training facilities
+              </p>
             </Card>
           </div>
         </div>
@@ -252,7 +261,8 @@ export default function CoWorking() {
                 </h2>
                 <div className="w-24 h-1 bg-accent rounded mb-6"></div>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Located in the heart of DHA Phase 2, our co-working space offers easy accessibility and a professional environment.
+                  Located in the heart of DHA Phase 2, our co-working space offers easy
+                  accessibility and a professional environment.
                 </p>
               </div>
 
@@ -264,7 +274,11 @@ export default function CoWorking() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-2">Address</h3>
-                      <p className="text-muted-foreground">2nd Floor, Opposite Avenue Mall<br />DHA Phase 2, Islamabad</p>
+                      <p className="text-muted-foreground">
+                        2nd Floor, Opposite Avenue Mall
+                        <br />
+                        DHA Phase 2, Islamabad
+                      </p>
                     </div>
                   </div>
 
@@ -300,15 +314,15 @@ export default function CoWorking() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:-translate-y-1">
-                  <img 
-                    src={coworkingImages[0]} 
+                  <img
+                    src={coworkingImages[0]}
                     alt="Co-working space exterior"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:-translate-y-1">
-                  <img 
-                    src={coworkingImages[1]} 
+                  <img
+                    src={coworkingImages[1]}
                     alt="Co-working workspace detail"
                     className="w-full h-full object-cover"
                   />
@@ -316,8 +330,8 @@ export default function CoWorking() {
               </div>
               <div className="space-y-4 pt-8">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:-translate-y-1">
-                  <img 
-                    src={coworkingImages[2]} 
+                  <img
+                    src={coworkingImages[2]}
                     alt="Modern co-working desks"
                     className="w-full h-full object-cover"
                   />
@@ -338,24 +352,23 @@ export default function CoWorking() {
       <section className="py-20 bg-gradient-to-r from-primary to-blue-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-4xl lg:text-5xl font-black">
-              Ready to Join Our Community?
-            </h2>
+            <h2 className="text-4xl lg:text-5xl font-black">Ready to Join Our Community?</h2>
             <p className="text-xl text-white/90 leading-relaxed">
-              Contact us today to schedule a tour and experience our world-class facilities firsthand.
+              Contact us today to schedule a tour and experience our world-class facilities
+              firsthand.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button 
+              <Button
                 onClick={handleContactClick}
-                size="lg" 
+                size="lg"
                 className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8"
               >
                 Contact Us
                 <Phone className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
+              <Button
                 onClick={handleContactClick}
-                size="lg" 
+                size="lg"
                 variant="outline"
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-lg px-8"
               >
